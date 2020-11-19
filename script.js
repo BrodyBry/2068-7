@@ -8,13 +8,13 @@ var currentBlocks = [];
 function moveLeft(){
     var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     if(left>0){
-        character.style.left = left - 2 + "px";
+        character.style.left = left - 2.7 + "px";
     }
 }
 function moveRight(){
     var left = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
     if(left<380){
-        character.style.left = left + 2 + "px";
+        character.style.left = left + 2.7 + "px";
     }
 }
 document.addEventListener("keydown", event => {
@@ -26,6 +26,13 @@ document.addEventListener("keydown", event => {
         if(event.key==="ArrowRight"){
             interval = setInterval(moveRight, 1);
         }
+        if(event.key==="a"){
+            interval = setInterval(moveLeft, 1);
+        }
+        if(event.key==="d"){
+            interval = setInterval(moveRight, 1);
+        }
+
     }
     setInterval(100);
 });
@@ -98,4 +105,5 @@ var blocks = setInterval(function(){
     }else{
         character.style.top = characterTop - 0.5 + "px";
     }
+
 },1);
